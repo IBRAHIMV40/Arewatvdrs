@@ -25,7 +25,6 @@
             scrollbar-width: none; /* Firefox */
             -ms-overflow-style: none;  /* IE and Edge */
         }
-
         *::-webkit-scrollbar {
             display: none; /* Chrome, Safari, Edge */
         }
@@ -332,6 +331,10 @@
             font-size: 0.60rem;
             margin: 0;
             color: var(--text-color);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 100%;
         }
         .discover-item .content p {
             font-size: 0px;
@@ -396,6 +399,10 @@
             color: var(--text-color);
             text-align: center;
             margin-top: 0px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 100%;
         }
         /* Grid Layout for View All and Search Results */
         .grid-container {
@@ -2894,29 +2901,10 @@
             }
         };
         
-        // Download movie function
+        // Download movie function - updated to visit arewa.com
         const downloadMovie = () => {
-            const downloadProgress = document.getElementById('download-progress');
-            downloadProgress.classList.add('open');
-            
-            // Simulate download progress
-            let progress = 0;
-            const interval = setInterval(() => {
-                progress += 5;
-                const progressBar = downloadProgress.querySelector('.progress-fill');
-                const percentageText = downloadProgress.querySelector('.download-percentage');
-                
-                progressBar.style.width = `${progress}%`;
-                percentageText.textContent = `${progress}%`;
-                
-                if (progress >= 100) {
-                    clearInterval(interval);
-                    setTimeout(() => {
-                        downloadProgress.classList.remove('open');
-                        showNotification('Download completed!', 'success');
-                    }, 1000);
-                }
-            }, 200);
+            // Open the arewa.com link in a new tab
+            window.open('http://arewa.com', '_blank');
         };
         
         // Open Edit Profile Modal
