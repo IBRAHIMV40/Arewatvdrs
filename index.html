@@ -454,7 +454,7 @@
             background: none;
             border: none;
             color: #fff;
-            font-size: 20px;
+            font-size: 16px;
             border: 1px solid #333;
             border-radius: 50px;
             cursor: pointer;
@@ -2436,10 +2436,10 @@
         const updateSaveButton = () => {
             const saveBtn = document.getElementById('save-btn');
             if (currentMovieInModal && savedMovies.includes(currentMovieInModal.title)) {
-                saveBtn.textContent = 'Unsave';
+                saveBtn.textContent = 'Added';
                 saveBtn.style.backgroundColor = '#ff0000';
             } else {
-                saveBtn.textContent = 'Save';
+                saveBtn.textContent = 'Add to list';
                 saveBtn.style.backgroundColor = '#00b300';
             }
         };
@@ -2454,13 +2454,13 @@
             if (savedMovies.includes(movieTitle)) {
                 // Remove from saved list
                 savedMovies = savedMovies.filter(title => title !== movieTitle);
-                saveBtn.textContent = 'Save';
+                saveBtn.textContent = 'Add to list';
                 saveBtn.style.backgroundColor = '#00b300';
                 showNotification('Removed from My List', 'success');
             } else {
                 // Add to saved list
                 savedMovies.push(movieTitle);
-                saveBtn.textContent = 'Unsave';
+                saveBtn.textContent = 'Added';
                 saveBtn.style.backgroundColor = '#ff0000';
                 showNotification('Added to My List', 'success');
             }
